@@ -39,6 +39,7 @@ const Header = () => {
         {colors.map((color, index) => (
           <option key={index} value={color.value}>
             {color.name}
+            
           </option>
         ))}
       </select>
