@@ -1,0 +1,75 @@
+.quotation-table {
+    width: 100%;
+    border-collapse: separate;
+    margin-top: 30px;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quotation-table th,
+  .quotation-table td {
+    padding: 15px;
+    text-align: left;
+  }
+  .total-section {
+    text-align: right;  /* Align text to the right */
+    padding-right: 20px; /* Add padding on the right for some space */
+  }
+
+  .total-section h4, .total-section h3 {
+    margin: 10px 0; /* Add some vertical spacing between items */
+  }
+
+  .total-section span {
+    font-weight: bold; /* Make the amount bold */
+  }
+  .quotation-table th {
+    background-color:  var(--primary-color);
+    color: white;
+  }
+  
+  .quotation-table tbody td input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: none;
+  }
+  
+  .quotation-table .item-row {
+    background-color: #f9f9f9;
+  }
+  
+  .quotation-table .item-row .remove-item {
+    color: red;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .add-description,
+  .add-item {
+    display: block;
+    color: #3a5767;
+    font-weight: bold;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .total-section {
+    text-align: right;
+    margin-top: 20px;
+  }
+  
+  .total-section h3 {
+    display: inline-block;
+    margin-right: 15px;
+    font-weight: normal;
+  }
+  
+  .total-section h3 span {
+    font-weight: bold;
+  }
+  

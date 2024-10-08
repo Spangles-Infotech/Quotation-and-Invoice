@@ -1,0 +1,101 @@
+input{
+    border: none;
+}
+.totalamount {
+    text-align: right;  /* Align text to the right */
+    padding-right: 20px; /* Add padding on the right */
+    margin: 10px 0;      /* Add spacing between elements */
+  }
+
+  .totalamount hr {
+    margin: 10px 0; /* Add spacing for the horizontal rule */
+    border: 1px solid #ddd; /* Light gray border for the hr */
+  }
+
+  .totalamount span {
+    font-weight: bold; /* Make the amount bold */
+  }
+.pr{
+    font-size:x-large !important;
+    color: var(--primary-color);
+    font-weight: 500;
+
+}
+.ar{
+    font-weight:400;
+    color: grey !important;
+}
+
+.Neon-theme-dragdropbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+    position: relative;
+  }
+  
+  .Neon-input-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .business-logo-preview {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image fits within the box while maintaining its aspect ratio */
+  }
+  
+.form-section {
+    margin-bottom: 15px;
+  }
+  
+  .ar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .quotation-no {
+    margin-left: 10px; /* Adjust this value as needed */
+    font-weight: bold;
+    font-size: 1.1em;
+  }
+  
+  .title{
+    font-weight: bold;
+  }
+  .mailspan{
+    font-weight: 500;
+    color: grey;
+  }
+  h5{
+    font-weight: 500;
+    color: black;
+    font-size:medium !important;
+  }
+  .quotation-summary {
+    margin-top: 20px;
+  }
+  
+  .quotation-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .quotation-table th, .quotation-table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+  }
+  
+  .totalamount {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: right;  /* Align to the right */
+  }
+  
+  
