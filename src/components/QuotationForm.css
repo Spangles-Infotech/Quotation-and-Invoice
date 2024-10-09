@@ -41,6 +41,12 @@
     color:  var(--primary-color);
     margin-bottom: 10px;
     padding-bottom: 20px;
+    font-family: Poppins;
+font-size: 24px;
+font-weight: 700;
+line-height: 36px;
+text-align: left;
+
   }
   
   .form-section {
@@ -58,14 +64,39 @@
     margin-bottom: 5px;
     color:  var(--primary-color);
     width: 60%;
+    width: 139px;
+height: 30px;
+top: 328px;
+left: 150px;
+gap: 0px;
+opacity: 0px;
+
   }
   
   input {
-    width: 100%;
+    
+    width: 250px !important;
     padding: 8px;
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 44px;
+height: 21px;
+gap: 0px;
+opacity: 0px;
+
+  }
+ .form-column input{
+  width: 100% !important;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 44px;
+height: 21px;
+gap: 0px;
+opacity: 0px;
+
   }
   
   .form-section input{
@@ -141,6 +172,15 @@
     box-sizing: border-box;
 }
 .Neon-input-dragDrop {
+  width: 350px;
+height: 90px;
+top: 328px;
+left: 940px;
+gap: 0px;
+border-radius: 10px 0px 0px 0px;
+border: 0.5px 0px 0px 0px;
+opacity: 0px;
+
     display: block;
     width: 343px;
     margin: 0 auto 25px auto;
@@ -165,6 +205,12 @@
 .Neon-input-text h3 {
     margin: 0;
     font-size: 18px;
+    font-family: 'Poppins','sans-serif';
+font-size: 12px;
+font-weight: 400;
+line-height: 18px;
+text-align: left;
+
 }
 .Neon-input-text span {
     font-size: 12px;

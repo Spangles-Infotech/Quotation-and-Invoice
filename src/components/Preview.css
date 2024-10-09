@@ -1,6 +1,9 @@
 input{
     border: none;
 }
+.quotation-no{
+  color: #505050 !important;
+}
 .totalamount {
     text-align: right;  /* Align text to the right */
     padding-right: 20px; /* Add padding on the right */
@@ -15,11 +18,19 @@ input{
   .totalamount span {
     font-weight: bold; /* Make the amount bold */
   }
+  
 .pr{
     font-size:x-large !important;
     color: var(--primary-color);
     font-weight: 500;
 
+}
+h4,h3{
+  color: var(--primary-color);
+}
+
+h4 span{
+  color:#505050;
 }
 .ar{
     font-weight:400;
@@ -78,11 +89,13 @@ input{
   }
   .quotation-summary {
     margin-top: 20px;
+    border-radius: 15px !important;
   }
   
   .quotation-table {
     width: 100%;
     border-collapse: collapse;
+    padding: 15px;
   }
   
   .quotation-table th, .quotation-table td {
@@ -92,12 +105,27 @@ input{
   }
   
   .totalamount {
+    color: #505050;
     margin-top: 20px;
     font-size: 1.5em;
     font-weight: bold;
     text-align: right;  /* Align to the right */
   }
-  
+  .tam{
+    color: var(--primary-color);
+  }
   button, a, input[type="button"], input[type="submit"] {
     cursor: pointer;
   }
+
+  .form-container{
+    flex-direction: row-reverse;
+  }
+  
+  input[name=description] {
+    pointer-events: none;
+    border-bottom: 0px;
+}
+input[name=amount] {
+  pointer-events: none;
+}

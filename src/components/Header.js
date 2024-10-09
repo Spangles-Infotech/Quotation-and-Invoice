@@ -7,10 +7,10 @@ const Header = () => {
   const location = useLocation();
   const colors = [
     { name: 'Default', value: '#345261' }, 
-    { name: 'Crimson Red', value: '#DC143C' }, 
-    { name: 'Royal Blue', value: '#4169E1' }, 
-    { name: 'Teal', value: '#008080' },
-    { name: 'Amethyst Purple', value: '#9966CC' },
+    { name: 'Crimson Red', value: '#2AB6C5' }, 
+    { name: 'Royal Blue', value: '#93A267' }, 
+    { name: 'Teal', value: '#626E54' },
+    { name: 'Amethyst Purple', value: '#2196F3' },
   ];
   
   
@@ -34,7 +34,7 @@ const Header = () => {
         <Link
           to="/"
           style={{
-            borderBottom: location.pathname === '/quotation' ? '2px solid white' : 'none',
+            borderBottom: location.pathname === '/' ? '2px solid white' : 'none',
           }}
         >
           Quotation

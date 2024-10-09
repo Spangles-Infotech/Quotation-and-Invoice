@@ -2,55 +2,81 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import './Preview.css';
 
+import Checkbox from '@mui/material/Checkbox';
+
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+
 const InvoicePreview = () => {
   const location = useLocation();
-  const { formData, items, businessLogo } = location.state || {}; // Safely access formData, items, and businessLogo
+  const { formData, businessLogo, items: initialItems, roundOff: initialRoundOff } = location.state || {}; // Safely access formData and businessLogo
 
-  const [discount, setDiscount] = useState(0); // State to handle discount
-  const [roundOff, setRoundOff] = useState(false); 
+  const [items, setItems] = useState(initialItems || [{ itemName: '', amount: 0, total: 0 }]); // Use passed initial items or default to one item
+  const [roundOff, setRoundOff] = useState(initialRoundOff || false); // State to handle round-off
 
-  if (!formData || !items) {
+  if (!formData) {
     return <h2>No Data Available</h2>;
   }
 
-  // Calculate CGST, SGST, Total Amount, and Discounted Total
-  const cgstSgstAmount = items.reduce((sum, item) => sum + (item.total * (item.gst / 100)) / 2, 0);
-  const totalAmount = items.reduce((sum, item) => sum + item.total, 0);
-  const discountAmount = (totalAmount * discount) / 100;
-  const finalAmount = totalAmount + cgstSgstAmount - discountAmount;
+  // Handle item changes (description and amount)
+  const handleChange = (e, index, field) => {
+    const updatedItems = [...items];
+    updatedItems[index][field] = e.target.value;
 
-  // Round off the final amount if the user has selected the round off option
-  const roundedAmount = roundOff ? Math.round(finalAmount) : finalAmount;
+    // Calculate total price for the item (with GST)
+    if (field === 'amount') {
+      const amount = parseFloat(updatedItems[index].amount) || 0;
+      const gstRate = 18; // Fixed 18% GST
+      updatedItems[index].total = amount * (1 + gstRate / 100);
+    }
+
+    setItems(updatedItems); // Update items state
+  };
+
+  // Calculate subtotal (without tax)
+  const subtotal = items.reduce((sum, item) => sum + (parseFloat(item.amount) || 0), 0);
+
+  // GST Calculations
+  const totalGST = subtotal * 0.18; // 18% GST
+  const cgst = totalGST / 2; // CGST 9%
+  const sgst = totalGST / 2; // SGST 9%
+
+  // Total Amount (subtotal + GST)
+  const totalAmount = subtotal + totalGST;
+
+  // Apply discount of 5% before rounding off
+  const discount = totalAmount * 0.05;
+  const amountAfterDiscount = totalAmount - discount;
+
+  // Handle rounding off total
+  const finalTotal = roundOff ? Math.round(amountAfterDiscount) : amountAfterDiscount;
 
   return (
     <div className="quotation-form">
       {/* Invoice Header */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '20px' }}>
         <div>
-          <label className="pr">Invoice</label>
+          <label className="pr" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' ,paddingBottom:'15px' }}>Invoice</label>
           <div className="form-section">
-            <label className="ar">
+            <label className="ar" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500',width:'200px' }}>
               Invoice No: <span className="quotation-no">{formData.quotationNo}</span>
             </label>
           </div>
           <div className="form-section">
-            <label className="ar">
+            <label className="ar" style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500',width:'200px' }}>
               Invoice Date: <span className="quotation-no">{formData.quotationDate}</span>
             </label>
           </div>
         </div>
 
         {/* Business Logo */}
-        <div className="Neon Neon-theme-dragdropbox">
-          <div className="Neon-input-dragDrop">
-            <div className="Neon-input-inner">
-              <div className="Neon-input-icon">
-                <img
-                  src={businessLogo || 'default-logo.png'}
-                  style={{ objectFit: 'contain', width: '200px', height: '100px' }}
-                  alt="Business Logo"
-                />
-              </div>
+        <div>
+          <div className="Neon-input-inner">
+            <div className="Neon-input-icon">
+              <img
+                src={businessLogo || 'default-logo.png'}
+                style={{ objectFit: 'contain', width: '200px', height: '100px' }}
+                alt="Business Logo"
+              />
             </div>
           </div>
         </div>
@@ -91,59 +117,92 @@ const InvoicePreview = () => {
         </div>
       </div>
 
-      {/* Quotation Summary Table */}
-      <div className="quotation-summary">
-        <table className="quotation-table">
-          <thead>
-            <tr>
-              <th>SI. No.</th>
-              <th>Description</th>
-              <th>Quantity</th>
-              <th>Rate</th>
-              <th>GST (%)</th>
-              <th>CGST</th>
-              <th>SGST</th>
-              <th>Amount</th>
-              <th>Total</th>
+      {/* Items Table */}
+      <table className="quotation-table">
+        <thead>
+          <tr>
+            <th>Item Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item, index) => (
+            <tr key={index}>
+              <td>
+                <input
+                  name="description"
+                  type="text"
+                  placeholder="Enter Description"
+                  value={item.itemName}
+                  onChange={(e) => handleChange(e, index, 'itemName')}
+                />
+              </td>
+              <td>
+                <input
+                  name="amount"
+                  type="number"
+                  placeholder="₹ 00.00"
+                  value={item.amount}
+                  onChange={(e) => handleChange(e, index, 'amount')}
+                />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {items.map((item, index) => (
-              <tr key={index}>
-                <td style={{ textAlign: 'center', fontWeight: 'bold' }}>{index + 1}</td>
-                <td>{item.itemName}</td>
-                <td>{item.quantity}</td>
-                <td>₹ {parseFloat(item.rate).toFixed(2)}</td>
-                <td>{item.gst} %</td>
-                <td>₹ {parseFloat(item.cgst).toFixed(2)}</td>
-                <td>₹ {parseFloat(item.sgst).toFixed(2)}</td>
-                <td>₹ {parseFloat(item.amount).toFixed(2)}</td>
-                <td>₹ {parseFloat(item.total).toFixed(2)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+          ))}
+        </tbody>
+      </table>
 
-        {/* Total Amount */}
-        <h3 className="totalamount">
-          <hr />
-          Total Amount: ₹ {totalAmount.toFixed(2)}
-        </h3>
+      {/* Total Section */}
+      <div className="total-section" style={{
+        padding: '20px', 
+        width: '300px', 
+        fontFamily: 'Arial, sans-serif', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        marginLeft: 'auto',   
+        marginRight: '20px',  
+        borderRadius: '5px', 
+      }}>
+        <h4 style={{ marginBottom: '5px', display: 'flex', justifyContent: 'space-between' }}>
+          Amount: <span style={{ fontWeight: 'bold' }}>₹ {subtotal.toFixed(2)}</span>
+        </h4>
+        <h4 style={{ marginBottom: '5px', display: 'flex', justifyContent: 'space-between' }}>
+          CGST (9%): <span style={{ fontWeight: 'bold' }}>₹ {cgst.toFixed(2)}</span>
+        </h4>
+        <h4 style={{ marginBottom: '5px', display: 'flex', justifyContent: 'space-between' }}>
+          SGST (9%): <span style={{ fontWeight: 'bold' }}>₹ {sgst.toFixed(2)}</span>
+        </h4>
+        <h4 style={{ marginBottom: '5px', display: 'flex', justifyContent: 'space-between' }}>
+          Discount (-5%): <span style={{ fontWeight: 'bold', color: 'red' }}>₹ {discount.toFixed(2)}</span>
+        </h4>
 
-        {/* Additional Calculations */}
-        <h5 className="totalamount">
-          CGST + SGST: ₹ {cgstSgstAmount.toFixed(2)}
-        </h5>
-        <h5 className="totalamount">
-          Final Amount (Before Discount): ₹ {finalAmount.toFixed(2)}
-        </h5>
-        <hr></hr>
-        <h5 className="totalamount">
-          Final Amount (After Discount): ₹ {(finalAmount.toFixed(2))-1200}
-        </h5>
-        <hr></hr>
-
+        {/* Form container for checkbox */}
         
+        <div className="form-check" style={{ display: 'flex', alignItems: 'center' }}>
+          <Checkbox
+            style={{ marginRight: 5 }} // Adjust spacing between checkbox and label
+            value=""
+            name="roundOff"
+            id="flexCheckChecked"
+            checked={roundOff}
+            className="form-check-input"
+            onChange={(e) => setRoundOff(e.target.checked)}
+            {...label}
+            defaultChecked
+          />
+          <label htmlFor="flexCheckChecked" style={{ marginLeft: 5,width:'auto' }}>Round Off</label>
+        </div>
+
+        <div style={{
+          borderTop: '1px solid #ccc', 
+          borderBottom: '1px solid #ccc', 
+          paddingTop: '10px', 
+          paddingBottom: '10px', 
+          marginTop: '10px'
+        }}>
+          <h3 style={{ display: 'flex', justifyContent: 'space-between', margin: 0 }}>
+            Total Amount: <span style={{ fontWeight: 'bold', color: '#008000' }}>₹ {finalTotal.toFixed(2)}</span>
+          </h3>
+        </div>
       </div>
     </div>
   );

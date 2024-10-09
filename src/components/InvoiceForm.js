@@ -58,12 +58,12 @@ const InvoiceForm = () => {
   return (
     <div>
       <div className="quotation-form">
-        <h1>Invoice</h1>
+        <h1 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Invoice</h1>
         <form onSubmit={handleSubmit}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
             <div>
               <div className="form-section">
-                <label>Invoice No.</label>
+                <label style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Invoice No.</label>
                 <input
                   type="text"
                   value={formData.quotationNo}
@@ -71,7 +71,7 @@ const InvoiceForm = () => {
                 />
               </div>
               <div className="form-section">
-                <label>Invoice Date</label>
+                <label style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Invoice Date</label>
                 <input
                   type="date"
                   name="quotationDate"
@@ -104,13 +104,13 @@ const InvoiceForm = () => {
                 <div className="Neon-input-inner">
                   <div className="Neon-input-icon">
                     {previewImage ? (
-                      <img src={previewImage} alt="Preview" style={{ width: '100%', height: 'auto' }} />
+                      <img src={previewImage} alt="Preview" style={{  width: '200px', height: '80px' }} />
                     ) : (
                       <img src={GroupImage} alt="Default" />
                     )}
                   </div>
                   <div className="Neon-input-text">
-                    <h3>Add Business Logo</h3>
+                    <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}>Add Business Logo</h3>
                   </div>
                 </div>
               </div>
@@ -120,8 +120,8 @@ const InvoiceForm = () => {
           <div className="form-grid">
             {/* Billed To Section */}
             <div className="form-column">
-              <h2>Billed To</h2>
-              <input
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Billed To</h2>
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="fromBusinessName"
                 placeholder="Your Business Name"
@@ -129,14 +129,14 @@ const InvoiceForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="email"
                 name="fromEmail"
                 placeholder="Your Email"
                 value={formData.fromEmail}
                 onChange={handleChange}
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="tel"
                 name="fromPhone"
                 placeholder="Your Phone Number"
@@ -146,7 +146,7 @@ const InvoiceForm = () => {
               />
               <div className="row">
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="fromCity"
                     placeholder="Your PAN"
@@ -155,7 +155,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="fromPostalCode"
                     placeholder="GSTIN"
@@ -164,7 +164,7 @@ const InvoiceForm = () => {
                   />
                 </div>
               </div>
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="fromAddress"
                 placeholder="Address"
@@ -173,7 +173,7 @@ const InvoiceForm = () => {
               />
               <div className="row">
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="fromCity"
                     placeholder="City"
@@ -182,7 +182,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="fromPostalCode"
                     placeholder="Postal Code"
@@ -191,7 +191,7 @@ const InvoiceForm = () => {
                   />
                 </div>
               </div>
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="fromState"
                 placeholder="State"
@@ -202,8 +202,8 @@ const InvoiceForm = () => {
 
             {/* Billed By Section */}
             <div className="form-column">
-              <h2>Billed By</h2>
-              <input
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Billed By</h2>
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="toBusinessName"
                 placeholder="Client Business Name"
@@ -211,14 +211,14 @@ const InvoiceForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="email"
                 name="toEmail"
                 placeholder="Client Email"
                 value={formData.toEmail}
                 onChange={handleChange}
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="tel"
                 name="toPhone"
                 placeholder="Client Phone Number"
@@ -228,7 +228,7 @@ const InvoiceForm = () => {
               />
               <div className="row">
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="toCity"
                     placeholder="PAN"
@@ -237,7 +237,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="toPostalCode"
                     placeholder="GSTIN"
@@ -246,7 +246,7 @@ const InvoiceForm = () => {
                   />
                 </div>
               </div>
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="toAddress"
                 placeholder="Address"
@@ -255,7 +255,7 @@ const InvoiceForm = () => {
               />
               <div className="row">
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="toCity"
                     placeholder="City"
@@ -264,7 +264,7 @@ const InvoiceForm = () => {
                   />
                 </div>
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="toPostalCode"
                     placeholder="Postal Code"
@@ -273,7 +273,7 @@ const InvoiceForm = () => {
                   />
                 </div>
               </div>
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="toState"
                 placeholder="State"
@@ -287,7 +287,7 @@ const InvoiceForm = () => {
           <InvoiceTotal items={items} setItems={setItems} />
 
           <div className="btn-continue">
-            <button type="submit" className="btn-cont">Continue</button>
+            <button style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }} type="submit" className="btn-cont">Continue</button>
           </div>
         </form>
       </div>

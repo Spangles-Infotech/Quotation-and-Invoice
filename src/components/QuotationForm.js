@@ -64,12 +64,12 @@ const QuotationForm = () => {
   return (
     <div>
       <div className="quotation-form">
-        <h1>Quotation</h1>
+        <h1 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Quotation</h1>
         <form onSubmit={handleSubmit}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
             <div>
               <div className="form-section">
-                <label>Quotation No.</label>
+                <label style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Quotation No.</label>
                 <input className=''
                   type="text"
                   value={formData.quotationNo}
@@ -77,7 +77,7 @@ const QuotationForm = () => {
                 />
               </div>
               <div className="form-section">
-                <label>Quotation Date</label>
+                <label style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Quotation Date</label>
                 <input
                   type="date"
                   name="quotationDate"
@@ -120,7 +120,7 @@ const QuotationForm = () => {
             )}
           </div>
           <div className="Neon-input-text">
-            <h3>Add Business Logo</h3>
+            <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Add Business Logo</h3>
             
           </div>
         </div>
@@ -138,8 +138,8 @@ const QuotationForm = () => {
           <div className="form-grid">
             {/* Quotation From Section */}
             <div className="form-column">
-              <h2>Quotation From</h2>
-              <input
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>Quotation From</h2>
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="fromBusinessName"
                 placeholder="Your Business Name"
@@ -147,14 +147,14 @@ const QuotationForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="email"
                 name="fromEmail"
                 placeholder="Your Email"
                 value={formData.fromEmail}
                 onChange={handleChange}
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="tel"
                 name="fromPhone"
                 placeholder="Your Phone Number"
@@ -162,7 +162,7 @@ const QuotationForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="fromAddress"
                 placeholder="Address"
@@ -171,7 +171,7 @@ const QuotationForm = () => {
               />
               <div className="row">
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="fromCity"
                     placeholder="City"
@@ -180,7 +180,7 @@ const QuotationForm = () => {
                   />
                 </div>
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="fromPostalCode"
                     placeholder="Postal Code"
@@ -189,7 +189,7 @@ const QuotationForm = () => {
                   />
                 </div>
               </div>
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="fromState"
                 placeholder="State"
@@ -200,8 +200,8 @@ const QuotationForm = () => {
 
             {/* Quotation To Section */}
             <div className="form-column">
-              <h2>Quotation For</h2>
-              <input
+              <h2 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '700' }}>Quotation For</h2>
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="toBusinessName"
                 placeholder="Client Business Name"
@@ -209,14 +209,14 @@ const QuotationForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="email"
                 name="toEmail"
                 placeholder="Client Email"
                 value={formData.toEmail}
                 onChange={handleChange}
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="tel"
                 name="toPhone"
                 placeholder="Client Phone Number"
@@ -224,7 +224,7 @@ const QuotationForm = () => {
                 onChange={handleChange}
                 required
               />
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="toAddress"
                 placeholder="Address"
@@ -233,7 +233,7 @@ const QuotationForm = () => {
               />
               <div className="row">
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="toCity"
                     placeholder="City"
@@ -242,7 +242,7 @@ const QuotationForm = () => {
                   />
                 </div>
                 <div>
-                  <input
+                  <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                     type="text"
                     name="toPostalCode"
                     placeholder="Postal Code"
@@ -251,7 +251,7 @@ const QuotationForm = () => {
                   />
                 </div>
               </div>
-              <input
+              <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                 type="text"
                 name="toState"
                 placeholder="State"
@@ -265,7 +265,7 @@ const QuotationForm = () => {
           <Total items={items} setItems={setItems} />
 
           <div className="btn-continue">
-            <button type="submit" className="btn-cont">Continue</button>
+            <button style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }} type="submit" className="btn-cont">Continue</button>
           </div>
         </form>
       </div>

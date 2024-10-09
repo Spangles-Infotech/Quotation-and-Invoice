@@ -36,7 +36,7 @@ const Total = ({ items, setItems }) => {
           {items.map((item, index) => (
             <tr key={index}>
               <td>
-                <input
+                <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                   type="text"
                   placeholder="Enter Description"
                   value={item.itemName}
@@ -44,7 +44,7 @@ const Total = ({ items, setItems }) => {
                 />
               </td>
               <td>
-                <input
+                <input style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}
                   type="number"
                   placeholder="₹ 00.00"
                   value={item.amount}
@@ -63,7 +63,7 @@ const Total = ({ items, setItems }) => {
       </table>
 
       <div className="total-section">
-        <h3>Total Amount: <span>₹ {totalAmount.toFixed(2)}</span></h3>
+        <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}>Total Amount: <span>₹ {totalAmount.toFixed(2)}</span></h3>
       </div>
     </div>
   );

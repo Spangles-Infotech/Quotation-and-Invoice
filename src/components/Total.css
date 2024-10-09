@@ -8,6 +8,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
+  
   .quotation-table th,
   .quotation-table td {
     padding: 15px;
@@ -59,10 +60,13 @@
   }
   
   .total-section {
-    text-align: right;
+    text-align: right ;
     margin-top: 20px;
   }
-  
+  .total-section input{
+    text-align: right !important;
+    margin-top: 20px;
+  }
   .total-section h3 {
     display: inline-block;
     margin-right: 15px;
@@ -75,3 +79,5 @@
   button, a, input[type="button"], input[type="submit"] {
     cursor: pointer;
   }
+
+  
