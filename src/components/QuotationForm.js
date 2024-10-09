@@ -5,7 +5,17 @@ import Total from './Total.js';
 import GroupImage from '../assets/Group.png';
 
 const QuotationForm = () => {
-    
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreviewImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
   const [formData, setFormData] = useState({
     quotationNo: 'SP001',
     quotationDate: '2024-05-31',
@@ -120,7 +130,12 @@ const QuotationForm = () => {
             )}
           </div>
           <div className="Neon-input-text">
-            <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Add Business Logo</h3>
+          {previewImage ? (
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}></h3>
+            ) : (
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Add Business Logo</h3>
+            )}
+            
             
           </div>
         </div>

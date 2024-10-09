@@ -110,7 +110,11 @@ const InvoiceForm = () => {
                     )}
                   </div>
                   <div className="Neon-input-text">
-                    <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '500' }}>Add Business Logo</h3>
+                  {previewImage ? (
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}></h3>
+            ) : (
+              <h3 style={{ fontFamily: 'Poppins, sans-serif', fontWeight: '600' }}>Add Business Logo</h3>
+            )}
                   </div>
                 </div>
               </div>

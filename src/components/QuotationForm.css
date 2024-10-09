@@ -230,3 +230,13 @@ text-align: left;
   button, a, input[type="button"], input[type="submit"] {
     cursor: pointer;
   }
+
+  .Neon-input-icon{
+    width: 319px;
+height: 72px;
+top: 338px;
+left: 951px;
+gap: 0px;
+opacity: 0px;
+  }
+  
