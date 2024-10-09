@@ -114,7 +114,7 @@ const QuotationForm = () => {
         <div className="Neon-input-inner">
           <div className="Neon-input-icon">
           {previewImage ? (
-              <img src={previewImage} alt="Preview" style={{ width: '100%', height: 'auto' }} />
+              <img src={previewImage} alt="Preview" style={{ width: '200px', height: '80px' }} />
             ) : (
               <img src={GroupImage} alt="Default" />
             )}

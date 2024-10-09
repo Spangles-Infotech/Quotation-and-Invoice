@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Header color={primaryColor} />  {/* Passing color prop to Header */}
       <Routes>
-        <Route path="/quotation" element={<QuotationForm color={primaryColor} />} />
+        <Route path="/" element={<QuotationForm color={primaryColor} />} />
         <Route path="/invoice" element={<InvoiceForm color={primaryColor} />} />
         <Route path="/Preview" element={<QuotationPreview color={primaryColor} />} />
         <Route path="/InvoicePreview" element={<InvoicePreview color={primaryColor} />} />

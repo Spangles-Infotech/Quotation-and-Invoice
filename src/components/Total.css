@@ -72,4 +72,6 @@
   .total-section h3 span {
     font-weight: bold;
   }
-  
+  button, a, input[type="button"], input[type="submit"] {
+    cursor: pointer;
+  }

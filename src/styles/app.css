@@ -2,4 +2,6 @@
 :root {
     --primary-color: #345261; /* Define the primary color */
 }
-  
+button, a, input[type="button"], input[type="submit"] {
+    cursor: pointer;
+  }

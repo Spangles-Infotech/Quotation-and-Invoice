@@ -53,3 +53,6 @@
   button:hover {
     background-color: #1abc9c;
   }
+  button, a, input[type="button"], input[type="submit"] {
+    cursor: pointer;
+  }

@@ -3,7 +3,9 @@ header {
     padding: 20px 20px;
   }
 
-  
+  button,svg, a, input[type="button"], input[type="submit"] {
+    cursor: pointer;
+  }
   nav {
     display: flex;
     justify-content: center; 
@@ -19,6 +21,18 @@ header {
     position: relative;
   }
   
- 
+  .color-picker {
+    display: flex;
+    align-items: center;
+  }
+  
+  .color-picker svg {
+    margin-right: 8px;
+    color: white !important;
+    font-size: 1.2rem; 
+  }
   
   
+  #colorDropdown{
+    display: none !important;
+  }
